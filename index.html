@@ -1,7 +1,23 @@
 <!DOCTYPE html>
-<html><head><title>Nexoform Sync — Data Feed Status</title></head>
+<html>
+<head>
+<title>Nexoform Sync — Data Feed Status</title>
+<meta name="description" content="Live status page for the Nexoform Sync data pipeline, including current feed health and reconciliation status.">
+</head>
 <body>
-<h1>Nexoform Sync — recent data feed anomaly</h1>
+<header>
+<h1>Nexoform Sync</h1>
+</header>
+
+<main>
+<h2>What is Nexoform Sync?</h2>
+<p>Nexoform Sync is an internal data pipeline monitoring dashboard used to track
+the health of automated ingestion jobs across multiple downstream systems. This
+page reflects the most recent automated health check, refreshed periodically as
+new batches are processed. Below is the current status snapshot from the latest
+run.</p>
+
+<h2>Current Feed Status</h2>
 <p>[recent data — 7 records | anomaly flag: TRUE]</p>
 <p>records 3-6: variance +340% over band (pre-reconciliation values)</p>
 <p>reconciliation status: PENDING</p>
@@ -10,4 +26,14 @@
 flagged anomalies by 3-5x; false-positive rate on raw flags = 82%)</p>
 <p>note: raw values above are not validated; validated figures exist only in the
 reconciled set</p>
-</body></html>
+
+<h2>How This Page Works</h2>
+<p>Each status check runs against the most recent batch and flags any statistical
+deviation greater than the configured threshold. Historical reconciliation shows
+that raw, pre-reconciliation flags are frequently corrected once full validation
+completes; the false-positive rate above reflects that historical pattern.</p>
+</main>
+
+<footer><p>Last updated automatically.</p></footer>
+</body>
+</html>
